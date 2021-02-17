@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
+class ExampleAdapter(private val list : List<ExampleItem>) : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExampleViewHolder {
@@ -21,10 +21,17 @@ class ExampleAdapter : RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder>() 
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
 
+        val currentItem = list[position]
+
+        holder.imageView.setImageResource(currentItem.imageResource)
+        holder.textView1.text = currentItem.text1
+        holder.textView2.text = currentItem.text2
+
     }
 
     override fun getItemCount(): Int {
 
+        return list.size
     }
 
     inner class ExampleViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
