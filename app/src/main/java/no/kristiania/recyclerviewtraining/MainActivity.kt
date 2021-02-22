@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
 
     fun removeItem (view : View){
 
+        val index = Random.nextInt(8)
+
+        exampleList.removeAt(index)
+
+        adapter.notifyItemRemoved(index)
 
     }
 
