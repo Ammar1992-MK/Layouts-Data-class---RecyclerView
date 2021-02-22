@@ -29,7 +29,7 @@
             android:id="@+id/add_btn"
             android:text="insert item"
             android:layout_weight="1"
-            android:onClick="insertItemm"
+            android:onClick="insertItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
