@@ -17,7 +17,7 @@
         android:layout_above = "@id/buttons"
         tools:listitem="@layout/example_item"/>
 
-    <LinearLayout0
+    <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +29,7 @@
             android:id="@+id/add_btn"
             android:text="insert item"
             android:layout_weight="1"
+            android:onClick="insertItemm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -36,9 +37,11 @@
             android:id="@+id/remove_btn"
             android:text="remve item"
             android:layout_weight="1"
+            android:onClick="removeItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout0>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

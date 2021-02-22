@@ -2,11 +2,16 @@ package no.kristiania.recyclerviewtraining
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import no.kristiania.recyclerviewtraining.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+
+    private val exampleList = generateDummyList(500)
+    private val adapter = ExampleAdapter(exampleList)
 
     lateinit var binding : ActivityMainBinding
 
@@ -17,15 +22,35 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val exampleList = generateDummyList(500)
 
-        binding.recyclerView.adapter = ExampleAdapter(exampleList)
+
+        binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.setHasFixedSize(true)
 
     }
 
-    private fun generateDummyList(size : Int) : List<ExampleItem>{
+    fun insertItem (view : View){
+
+        val index = Random.nextInt(8)
+
+        val newItem = ExampleItem(
+                R.drawable.ic_bedtime,
+                text1 = "new item",
+                text2 = "Line 2"
+        )
+
+        exampleList.add(index, newItem)
+
+        adapter.notifyItemInserted(index);
+    }
+
+    fun removeItem (view : View){
+
+
+    }
+
+    private fun generateDummyList(size : Int) : ArrayList<ExampleItem>{
 
         val list = ArrayList<ExampleItem>()
 
